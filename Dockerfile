@@ -13,7 +13,7 @@ RUN \
   && php ./bin/magento setup:di:compile --no-ansi --no-interaction \
   && php ./bin/magento setup:static-content:deploy --no-ansi --no-interaction -f -s standard
 
-COPY --chown=root:app ./bin/ /opt/bin/
+COPY --chown=root:bitnami ./bin/ /opt/bin/
 
 USER root
 
