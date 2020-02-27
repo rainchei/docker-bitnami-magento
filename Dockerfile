@@ -17,4 +17,4 @@ COPY --chown=root:app ./bin/ /opt/bin/
 
 USER root
 
-ENTRYPOINT ["/usr/bin/tini","-g","--","bash","/opt/bin/magento-run.sh"]
+ENTRYPOINT ["/usr/local/bin/tini","-g","--","bash","/opt/bin/magento-run.sh"]
