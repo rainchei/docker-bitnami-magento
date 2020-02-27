@@ -1,0 +1,2 @@
+#!/bin/bash
+export DOCKER_TAG="${GIT_COMMIT:-$(git describe --long --dirty --abbrev=10 --tags --always)}-$(date '+%Y%m%d')"
