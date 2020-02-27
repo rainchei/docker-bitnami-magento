@@ -3,7 +3,7 @@ FROM bitnami/magento
 ## Install packages
 RUN install_packages vim
 
-USER root
+USER bitnami
 
 COPY --chown=bitnami:bitnami ./app/code/* /opt/bitnami/magento/htdocs/app/code/
 
