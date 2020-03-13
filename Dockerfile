@@ -34,11 +34,11 @@ RUN \
     composer \
     nginx 
 
-COPY --chown root:root ./etc/php/7.2/ /etc/php/7.2/
+COPY ./etc/php/7.2/ /etc/php/7.2/
 
-COPY --chown root:root ./opt/ /opt/
+COPY ./opt/ /opt/
 
-COPY --chown root:root ./etc/nginx/sites-available/ /etc/nginx/sites-available/
+COPY ./etc/nginx/sites-available/ /etc/nginx/sites-available/
 
 RUN \
   cd /var/www/
