@@ -1,1 +1,1 @@
-# docker-bitnami-magento
+# docker-magento

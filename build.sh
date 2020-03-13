@@ -4,7 +4,7 @@ find . -type f -name '.DS_Store' -delete
 
 BUILD_DATE="$(date '+%Y%m%d')"
 
-BASE="rainchei/docker-bitnami-magento"
+BASE="rainchei/docker-magento"
 
 TAG="${GIT_COMMIT:-$(git describe --long --dirty --abbrev=10 --tags --always)}-${BUILD_DATE}"
 
