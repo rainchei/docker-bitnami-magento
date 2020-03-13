@@ -41,7 +41,7 @@ COPY ./opt/ /opt/
 COPY ./etc/nginx/sites-available/ /etc/nginx/sites-available/
 
 RUN \
-  cd /var/www/
+  cd /var/www/ \
   && wget https://github.com/magento/magento2/archive/2.3.4.tar.gz \
   && tar -xf 2.3.4.tar.gz \
   && mv magento2-2.3.4 magento2 \
