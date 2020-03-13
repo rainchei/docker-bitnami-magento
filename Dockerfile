@@ -1,8 +1,7 @@
 FROM ubuntu:18.04
 
 RUN \
-  ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime \
-  && apt-get -y clean \
+  apt-get -y clean \
   && apt-get -y update \
   && apt-get -y upgrade \
   && apt-get install -y --no-install-recommends \
@@ -12,7 +11,6 @@ RUN \
     vim \
     net-tools \
     wget \
-  && locale-gen en_US.UTF-8 \
   && LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php -y \
   && apt-get install -y \
     php7.2-fpm \
