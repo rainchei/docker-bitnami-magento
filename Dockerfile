@@ -37,7 +37,7 @@ RUN \
 
 COPY ./etc/php/7.2/ /etc/php/7.2/
 
-COPY ./opt/ /opt/
+COPY ./etc/entrypoint.sh /etc/entrypoint.sh
 
 COPY ./etc/nginx/sites-available/ /etc/nginx/sites-available/
 
@@ -53,4 +53,6 @@ RUN \
 RUN \
   chown -R www-data:www-data /var/www/magento2/
 
-CMD ["bash", "/opt/mage-run.sh"]
+EXPOSE 80 443
+
+CMD ["bash", "/etc/entrypoint.sh"]
