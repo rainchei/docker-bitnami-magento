@@ -3,7 +3,7 @@
 setenv() {
   BASE="rainchei/docker-magento"
   BUILD_DATE="$(date '+%Y%m%d')"
-  TAG="$(git describe --dirty)}-${BUILD_DATE}"
+  TAG="$(git describe --dirty)-${BUILD_DATE}"
 }
 
 fail() {
