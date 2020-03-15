@@ -13,6 +13,7 @@ RUN \
     vim \
     net-tools \
     wget \
+    gosu \
   && locale-gen en_US.UTF-8 \
   && LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php -y \
   && apt-get install -y \

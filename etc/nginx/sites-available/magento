@@ -9,6 +9,6 @@ server {
   server_name localhost-magento.example.com;
 
   set $MAGE_ROOT /var/www/magento2;
-  set $MAGE_MODE developer;
+  set $MAGE_MODE production;
   include /var/www/magento2/nginx.conf.sample;
 }
