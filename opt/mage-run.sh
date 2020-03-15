@@ -1,4 +1,3 @@
 #!/bin/bash
-#service nginx start
-#service php7.2-fpm start
-sleep 3650d
+service nginx start &
+service php7.2-fpm start &

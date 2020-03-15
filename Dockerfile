@@ -50,4 +50,7 @@ RUN \
   && composer install -v \
   && ln -s /etc/nginx/sites-available/magento /etc/nginx/sites-enabled/
 
-ENTRYPOINT ["bash", "/opt/mage-run.sh"]
+RUN \
+  chown -R www-data:www-data /var/www/magento2/
+
+CMD ["bash", "/opt/mage-run.sh"]
