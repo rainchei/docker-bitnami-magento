@@ -67,6 +67,7 @@ RUN \
     --timezone=UTC \
     --use-rewrites=1 \
     --backend-frontname=admin_portal \
+    --cleanup-database \
   && ./bin/magento deploy:mode:set production \
     --no-interaction --skip-compilation \
   && ./bin/magento setup:di:compile --no-interaction --no-ansi \
