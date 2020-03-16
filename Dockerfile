@@ -36,12 +36,7 @@ RUN \
     composer \
     nginx 
 
-COPY ./etc/php/7.2/ /etc/php/7.2/
-
-COPY ./etc/entrypoint.sh /etc/entrypoint.sh
-
-COPY ./etc/nginx/sites-available/ /etc/nginx/sites-available/
-
+COPY ./etc/ /etc/
 
 # Install magento2
 RUN \
