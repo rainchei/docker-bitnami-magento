@@ -53,7 +53,7 @@ RUN \
   && composer install -v \
   && ./bin/magento setup:install --no-interaction \
     --base-url=http://localhost/magento2/ \
-    --db-host=127.0.0.1 \
+    --db-host=localhost \
     --db-name=magento \
     --db-user=root \
     --db-password=root \
