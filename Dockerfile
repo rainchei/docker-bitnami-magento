@@ -42,17 +42,45 @@ COPY ./etc/entrypoint.sh /etc/entrypoint.sh
 
 COPY ./etc/nginx/sites-available/ /etc/nginx/sites-available/
 
+
+# Install magento2
 RUN \
   cd /var/www/ \
   && wget https://github.com/magento/magento2/archive/2.3.4.tar.gz \
   && tar -xf 2.3.4.tar.gz \
   && mv magento2-2.3.4 magento2 \
-  && cd /var/www/magento2 \
+
+COPY ./magento2/ /var/www/magento2/
+
+# Post Install
+RUN \
+  cd /var/www/magento2 \
   && composer install -v \
-  && ln -s /etc/nginx/sites-available/magento /etc/nginx/sites-enabled/
+  && ./bin/magento setup:install --no-interaction \
+    --base-url=http://localhost/magento2/ \
+    --db-host=127.0.0.1 \
+    --db-name=magento \
+    --db-user=root \
+    --db-password=root \
+    --admin-firstname=Magento \
+    --admin-lastname=User \
+    --admin-email=user@example.com \
+    --admin-user=admin \
+    --admin-password=admin123 \
+    --language=en_US \
+    --currency=USD \
+    --timezone=UTC \
+    --use-rewrites=1 \
+    --backend-frontname=admin_portal \
+  && ./bin/magento deploy:mode:set production \
+    --no-interaction --skip-compilation \
+  && ./bin/magento setup:di:compile --no-interaction --no-ansi \
+  && ./bin/magento setup:static-content:deploy --no-interaction --no-ansi \
+    --strategy=compact
 
 RUN \
-  chown -R www-data:www-data /var/www/magento2/
+  ln -s /etc/nginx/sites-available/magento /etc/nginx/sites-enabled/ \
+  && chown -R www-data:www-data /var/www/magento2/
 
 EXPOSE 80 443
 
