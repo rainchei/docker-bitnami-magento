@@ -43,7 +43,7 @@ RUN \
   cd /var/www/ \
   && wget https://github.com/magento/magento2/archive/2.3.4.tar.gz \
   && tar -xf 2.3.4.tar.gz \
-  && mv magento2-2.3.4 magento2 \
+  && mv magento2-2.3.4 magento2
 
 COPY ./magento2/ /var/www/magento2/
 
