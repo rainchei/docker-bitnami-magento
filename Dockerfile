@@ -39,14 +39,15 @@ COPY ./etc/ /etc/
 
 # Install magento2
 RUN \
-  cd /var/www/ \
+  mkdir -p /var/www \
+  && cd /var/www \
   && wget https://github.com/magento/magento2/archive/2.3.4.tar.gz \
   && tar -xf 2.3.4.tar.gz \
   && mv magento2-2.3.4 magento2
 
 COPY ./magento2/ /var/www/magento2/
 
-# Post Install
+# Generate code and static contents
 RUN \
   cd /var/www/magento2 \
   && composer install -v \

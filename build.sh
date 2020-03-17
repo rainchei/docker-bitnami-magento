@@ -2,7 +2,6 @@
 
 setenv() {
   BASE="rainchei/docker-magento"
-  DOCKERFILE="Dockerfile-contents"
   BUILD_DATE="$(date '+%Y%m%d')"
   TAG="$(git describe --dirty)-${BUILD_DATE}"
 }
@@ -26,7 +25,6 @@ main() {
 
   DOCKER_BUILDKIT=1 docker build \
     --pull \
-    -f "${DOCKERFILE}" \
     -t "${BASE}:${TAG}" \
     . \
   || fail "Failed to build ${BASE}:${TAG}." 2
