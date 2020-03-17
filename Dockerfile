@@ -69,6 +69,8 @@ RUN \
   chmod +x /etc/entrypoint.sh \
   && mkdir -p /run/php
 
+WORKDIR /var/www/magento2
+
 # ---
 
 ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
