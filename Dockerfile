@@ -42,8 +42,6 @@ RUN \
     composer \
   && chmod +x /usr/bin/tini
 
-COPY ./etc/ /etc/
-
 # Install magento2
 RUN \
   mkdir -p /var/www \
@@ -52,9 +50,11 @@ RUN \
   && tar -xf 2.3.4.tar.gz \
   && mv magento2-2.3.4 magento2
 
+# Generate code and static contents
 COPY ./magento2/ /var/www/magento2/
 
-# Generate code and static contents
+COPY ./etc/ /etc/
+
 RUN \
   cd /var/www/magento2 \
   && composer install -v \
