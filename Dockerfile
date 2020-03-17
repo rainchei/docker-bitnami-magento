@@ -33,7 +33,7 @@ RUN \
     php7.2-soap \
     php7.2-bcmath \
   && apt-get install -y \
-    composer \
+    composer
 
 COPY ./etc/ /etc/
 
