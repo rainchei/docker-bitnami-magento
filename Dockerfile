@@ -66,10 +66,10 @@ RUN \
 # Post install
 RUN \
   chown -R www-data:www-data /var/www/magento2/ \
+  && chmod +x /etc/entrypoint.sh \
   && mkdir -p /run/php
 
 # ---
 
-ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
+ENTRYPOINT ["/usr/bin/tini", "-g", "--", "bash", "/etc/entrypoint.sh"]
 
-CMD ["bash", "-c", "/etc/entrypoint.sh"]
