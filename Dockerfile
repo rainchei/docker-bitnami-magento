@@ -23,21 +23,30 @@ RUN \
   && locale-gen en_US.UTF-8 \
   && LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php -y \
   && apt-get install -y \
-    php${PHP_VERSION}-fpm \
-    php${PHP_VERSION}-curl \
-    php${PHP_VERSION}-cli \
-    php${PHP_VERSION}-mysql \
-    php${PHP_VERSION}-gd \
-    php${PHP_VERSION}-xsl \
-    php${PHP_VERSION}-json \
-    php${PHP_VERSION}-intl \
-    php-pear \
-    php${PHP_VERSION}-dev \
-    php${PHP_VERSION}-common \
-    php${PHP_VERSION}-mbstring \
-    php${PHP_VERSION}-zip \
-    php${PHP_VERSION}-soap \
+    php${PHP_VERSION} \
     php${PHP_VERSION}-bcmath \
+    php${PHP_VERSION}-common \
+    php${PHP_VERSION}-cli \
+    php${PHP_VERSION}-curl \
+    php${PHP_VERSION}-gd \
+    php${PHP_VERSION}-intl \
+    php${PHP_VERSION}-json \
+    php${PHP_VERSION}-mbstring \
+    php${PHP_VERSION}-opcache \
+    php${PHP_VERSION}-redis \
+    php${PHP_VERSION}-soap \
+    php${PHP_VERSION}-xml \
+    php${PHP_VERSION}-xsl \
+    php${PHP_VERSION}-zip \
+    php${PHP_VERSION}-iconv \
+    php${PHP_VERSION}-fpm \
+    php${PHP_VERSION}-dev \
+    php${PHP_VERSION}-mysql \
+    php-pear \
+    libfcgi-bin \
+    re2c \
+  && pecl channel-update pecl.php.net \
+  && pecl install lzf \
   && apt-get install -y \
     composer \
   && chmod +x /usr/bin/tini
@@ -67,7 +76,7 @@ COPY ./etc/ /etc/
 
 RUN \
   chmod +x /etc/entrypoint.sh \
-  && mkdir -p /run/php
+  && mkdir -p /var/run/php
 
 WORKDIR /var/www/magento2
 
