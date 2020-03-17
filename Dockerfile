@@ -1,11 +1,17 @@
 FROM ubuntu:18.04
 
+ENV DEBIAN_FRONTEND noninteractive \
+    PHP_VERSION 7.2 \
+    TINI_VERSION v0.18.0
+
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
+
 RUN \
   ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime \
   && apt-get -y clean \
   && apt-get -y update \
   && apt-get -y upgrade \
-  && apt-get install -y \
+  && apt-get install -y --no-install-recommends \
     software-properties-common \
     tzdata \
     locales \
@@ -17,23 +23,24 @@ RUN \
   && locale-gen en_US.UTF-8 \
   && LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php -y \
   && apt-get install -y \
-    php7.2-fpm \
-    php7.2-curl \
-    php7.2-cli \
-    php7.2-mysql \
-    php7.2-gd \
-    php7.2-xsl \
-    php7.2-json \
-    php7.2-intl \
+    php${PHP_VERSION}-fpm \
+    php${PHP_VERSION}-curl \
+    php${PHP_VERSION}-cli \
+    php${PHP_VERSION}-mysql \
+    php${PHP_VERSION}-gd \
+    php${PHP_VERSION}-xsl \
+    php${PHP_VERSION}-json \
+    php${PHP_VERSION}-intl \
     php-pear \
-    php7.2-dev \
-    php7.2-common \
-    php7.2-mbstring \
-    php7.2-zip \
-    php7.2-soap \
-    php7.2-bcmath \
+    php${PHP_VERSION}-dev \
+    php${PHP_VERSION}-common \
+    php${PHP_VERSION}-mbstring \
+    php${PHP_VERSION}-zip \
+    php${PHP_VERSION}-soap \
+    php${PHP_VERSION}-bcmath \
   && apt-get install -y \
-    composer
+    composer \
+  && chmod +x /usr/bin/tini
 
 COPY ./etc/ /etc/
 
@@ -61,6 +68,8 @@ RUN \
   chown -R www-data:www-data /var/www/magento2/ \
   && mkdir -p /run/php
 
-EXPOSE 80 443
+# ---
 
-CMD ["bash", "/etc/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
+
+CMD ["bash", "-c", "/etc/entrypoint.sh"]
