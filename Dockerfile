@@ -31,13 +31,13 @@ RUN \
     php${PHP_VERSION}-xsl \
     php${PHP_VERSION}-json \
     php${PHP_VERSION}-intl \
-    php-pear \
     php${PHP_VERSION}-dev \
     php${PHP_VERSION}-common \
     php${PHP_VERSION}-mbstring \
     php${PHP_VERSION}-zip \
     php${PHP_VERSION}-soap \
     php${PHP_VERSION}-bcmath \
+    php-pear \
   && apt-get install -y \
     composer \
   && chmod +x /usr/bin/tini
@@ -70,8 +70,6 @@ RUN \
   && mkdir -p /run/php
 
 WORKDIR /var/www/magento2
-
-USER root
 
 # ---
 
