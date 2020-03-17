@@ -2,7 +2,7 @@
 
 setenv() {
   BASE="rainchei/docker-magento"
-  DOCKERFILE="./Dockerfile-contents"
+  DOCKERFILE="Dockerfile-contents"
   BUILD_DATE="$(date '+%Y%m%d')"
   TAG="$(git describe --dirty)-${BUILD_DATE}"
 }
