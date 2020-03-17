@@ -59,15 +59,15 @@ RUN \
   && ./bin/magento setup:di:compile --no-interaction --no-ansi \
   && ./bin/magento setup:static-content:deploy --no-interaction --no-ansi \
     --strategy=compact \
-    -f
+    -f \
+  && chown -R www-data:www-data /var/www/magento2/
 
 # Post install
-RUN \
-  chown -R www-data:www-data /var/www/magento2/ \
-  && chmod +x /etc/entrypoint.sh \
-  && mkdir -p /run/php
-
 COPY ./etc/ /etc/
+
+RUN \
+  chmod +x /etc/entrypoint.sh \
+  && mkdir -p /run/php
 
 # ---
 
