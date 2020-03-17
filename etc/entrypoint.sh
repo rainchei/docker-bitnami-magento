@@ -17,6 +17,8 @@ main() {
 
   echo "Starting php-fpm."
   exec /usr/sbin/php-fpm7.2 -F
+
+  tail -f ${PHPFPM_LOG}
 }
 
 # ===
