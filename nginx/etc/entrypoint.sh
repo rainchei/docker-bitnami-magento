@@ -1,7 +1,7 @@
 #!/bin/bash
 
 setenv() {
-  PHPFPM_SOCK='/run/php/php7.2-fpm.sock'
+  PHPFPM_SOCK='/var/run/php/php7.2-fpm.sock'
   WAIT='5'
 }
 
