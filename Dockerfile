@@ -34,7 +34,6 @@ RUN \
     php7.2-bcmath \
   && apt-get install -y \
     composer \
-    nginx 
 
 COPY ./etc/ /etc/
 
@@ -57,8 +56,7 @@ RUN \
     -f
 
 RUN \
-  ln -s /etc/nginx/sites-available/magento /etc/nginx/sites-enabled/ \
-  && chown -R www-data:www-data /var/www/magento2/
+  chown -R www-data:www-data /var/www/magento2/
 
 EXPOSE 80 443
 
