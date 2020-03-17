@@ -56,8 +56,9 @@ RUN \
     --strategy=compact \
     -f
 
+# Post install
 RUN \
-  chown -R www-data:www-data /var/www/magento2/ \
+  chown -R www-data:www-data /var/www/magento2/
   mkdir -p /run/php
 
 EXPOSE 80 443
