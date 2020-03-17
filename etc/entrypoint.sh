@@ -15,7 +15,7 @@ main() {
   ${MAGENTO_USER} cp ${MAGENTO_ENV} ${MAGENTO_ROOT}/app/etc/env.php
 
   echo "Starting php-fpm."
-  exec /usr/sbin/php-fpm7.2 -F
+  exec /usr/sbin/php-fpm7.2
 }
 
 # ===
