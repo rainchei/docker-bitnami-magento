@@ -5,10 +5,10 @@ ENV PHP_VERSION=7.2 \
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 
-COPY ./etc/ /etc/
-
 RUN \
   chmod +x /usr/bin/tini
+
+COPY ./etc/ /etc/
 
 # ---
 

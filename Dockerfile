@@ -53,8 +53,6 @@ RUN \
 # Generate code and static contents
 COPY ./magento2/ /var/www/magento2/
 
-COPY ./etc/ /etc/
-
 RUN \
   cd /var/www/magento2 \
   && composer install -v \
@@ -68,6 +66,8 @@ RUN \
   chown -R www-data:www-data /var/www/magento2/ \
   && chmod +x /etc/entrypoint.sh \
   && mkdir -p /run/php
+
+COPY ./etc/ /etc/
 
 # ---
 
