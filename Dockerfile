@@ -71,5 +71,6 @@ RUN \
 
 # ---
 
-ENTRYPOINT ["/usr/bin/tini", "-g", "--", "bash", "/etc/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 
+CMD ["bash", "-c", "/etc/entrypoint.sh"]
