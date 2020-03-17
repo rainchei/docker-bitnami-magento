@@ -58,7 +58,7 @@ RUN \
 
 RUN \
   chown -R www-data:www-data /var/www/magento2/ \
-  mkdir -p /var/run
+  mkdir -p /run/php
 
 EXPOSE 80 443
 
