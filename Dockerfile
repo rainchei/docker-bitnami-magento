@@ -51,25 +51,6 @@ COPY ./magento2/ /var/www/magento2/
 RUN \
   cd /var/www/magento2 \
   && composer install -v \
-  && ./bin/magento setup:install --no-interaction \
-    --base-url=http://localhost/magento2/ \
-    --db-host=172.17.0.2 \
-    --db-name=magento \
-    --db-user=magento \
-    --db-password=magento \
-    --admin-firstname=Magento \
-    --admin-lastname=User \
-    --admin-email=user@example.com \
-    --admin-user=admin \
-    --admin-password=admin123 \
-    --language=en_US \
-    --currency=USD \
-    --timezone=UTC \
-    --use-rewrites=1 \
-    --backend-frontname=admin_portal \
-    --cleanup-database \
-  && ./bin/magento deploy:mode:set production \
-    --no-interaction --skip-compilation \
   && ./bin/magento setup:di:compile --no-interaction --no-ansi \
   && ./bin/magento setup:static-content:deploy --no-interaction --no-ansi \
     --strategy=compact
