@@ -53,7 +53,8 @@ RUN \
   && composer install -v \
   && ./bin/magento setup:di:compile --no-interaction --no-ansi \
   && ./bin/magento setup:static-content:deploy --no-interaction --no-ansi \
-    --strategy=compact
+    --strategy=compact \
+    -f
 
 RUN \
   ln -s /etc/nginx/sites-available/magento /etc/nginx/sites-enabled/ \
