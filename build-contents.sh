@@ -2,6 +2,7 @@
 
 setenv() {
   BASE="rainchei/docker-magento"
+  DOCKERFILE="dockerfile-contents"
   BUILD_DATE="$(date '+%Y%m%d')"
   TAG="$(git describe --dirty)-${BUILD_DATE}"
 }
@@ -23,7 +24,11 @@ main() {
   echo "== Build Start."
   start=$(date +%s)
 
-  DOCKER_BUILDKIT=1 docker build --pull -t "${BASE}:${TAG}" . \
+  DOCKER_BUILDKIT=1 docker build \
+    --pull \
+    -f "${DOCKERFILE}" \
+    -t "${BASE}:${TAG}" \
+    . \
   || fail "Failed to build ${BASE}:${TAG}." 2
 
   end=$(date +%s)
