@@ -40,6 +40,7 @@ RUN \
     php-pear \
   && apt-get install -y \
     composer \
+  && mkdir -p /var/run/php \
   && chmod +x /usr/bin/tini
 
 # Install magento2
@@ -65,13 +66,10 @@ RUN \
 # Post install
 COPY ./etc/ /etc/
 
-RUN \
-  chmod +x /etc/entrypoint.sh \
-  && mkdir -p /run/php
-
 WORKDIR /var/www/magento2
 
 # ---
 
-ENTRYPOINT ["/usr/bin/tini", "-g", "--", "bash", "/etc/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 
+CMD ["bash", "-c", "/etc/entrypoint.sh"]
