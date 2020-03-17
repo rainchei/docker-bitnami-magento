@@ -71,6 +71,8 @@ RUN \
 
 WORKDIR /var/www/magento2
 
+USER root
+
 # ---
 
 ENTRYPOINT ["/usr/bin/tini", "-g", "--", "bash", "/etc/entrypoint.sh"]
