@@ -66,10 +66,16 @@ RUN \
 # Post install
 COPY ./etc/ /etc/
 
-WORKDIR /var/www/magento2
+RUN \
+  cd /var/www/magento2 \
+  && tar -cvzpf mage2.tar.gz . \
+  && mv mage2.tar.gz /var/www \
+  && rm -rf /var/www/magento2
+
+WORKDIR /var/www/html
 
 # ---
 
 ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 
-CMD ["bash", "-c", "/etc/entrypoint.sh"]
+CMD ["bash", "-c", "entrypoint.sh"]

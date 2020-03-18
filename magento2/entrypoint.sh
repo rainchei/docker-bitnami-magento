@@ -2,17 +2,17 @@
 set -eo pipefail
 
 setenv() {
-  MAGENTO_ROOT='/var/www/magento2'
   MAGENTO_USER='gosu www-data:www-data'
-  MAGENTO_ENV='/etc/magento2/app/etc/env.php'
+  MAGENTO_ENVPHP='/etc/magento2/app/etc/env.php'
 }
 
 main() {
+  cd $(dirname $0)
   setenv
 
   # TODO: dockerize env.php
   echo "Setting up env.php for magento2."
-  ${MAGENTO_USER} cp ${MAGENTO_ENV} ${MAGENTO_ROOT}/app/etc/env.php
+  ${MAGENTO_USER} cp ${MAGENTO_ENVPHP} ./app/etc/env.php
 
   echo "Starting php-fpm."
   exec /usr/sbin/php-fpm7.2
