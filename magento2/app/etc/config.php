@@ -2100,6 +2100,15 @@ Disallow: /*SID=
         ],
     ],
     'themes' => [
+        'adminhtml/Magento/backend' => [
+            'parent_id' => null,
+            'theme_path' => 'Magento/backend',
+            'theme_title' => 'Magento 2 backend',
+            'is_featured' => '0',
+            'area' => 'adminhtml',
+            'type' => '0',
+            'code' => 'Magento/backend',
+        ],
         'frontend/Magento/blank' => [
             'parent_id' => null,
             'theme_path' => 'Magento/blank',
@@ -2117,15 +2126,6 @@ Disallow: /*SID=
             'area' => 'frontend',
             'type' => '0',
             'code' => 'Magento/luma',
-        ],
-        'adminhtml/Magento/backend' => [
-            'parent_id' => null,
-            'theme_path' => 'Magento/backend',
-            'theme_title' => 'Magento 2 backend',
-            'is_featured' => '0',
-            'area' => 'adminhtml',
-            'type' => '0',
-            'code' => 'Magento/backend',
         ],
     ],
     'i18n' => [
