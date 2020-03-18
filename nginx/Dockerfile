@@ -11,8 +11,10 @@ RUN \
 # Post install
 COPY ./etc/ /etc/
 
+WORKDIR /etc/nginx
+
 # ---
 
 ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 
-CMD ["bash", "-c", "/etc/entrypoint.sh"]
+CMD ["bash", "entrypoint.sh"]
