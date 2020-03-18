@@ -18,6 +18,7 @@ RUN \
     curl \
     vim \
     net-tools \
+    bsdtar \
     wget \
     gosu \
   && locale-gen en_US.UTF-8 \
@@ -48,8 +49,9 @@ RUN \
   mkdir -p /var/www \
   && cd /var/www \
   && wget https://github.com/magento/magento2/archive/2.3.4.tar.gz \
-  && tar -xf 2.3.4.tar.gz \
-  && mv magento2-2.3.4 magento2
+  && bsdtar -xf 2.3.4.tar.gz \
+  && mv magento2-2.3.4 magento2 \
+  && rm 2.3.4.tar.gz
 
 # Generate code and static contents
 COPY ./magento2/ /var/www/magento2/
@@ -68,7 +70,7 @@ COPY ./etc/ /etc/
 
 RUN \
   cd /var/www/magento2 \
-  && bsdtar -cvzpf /var/www/backup.tar.gz . \
+  && bsdtar -cvzpf /var/www/mage2bak.tar.gz . \
   && rm -rf /var/www/magento2
 
 WORKDIR /var/www/html
