@@ -68,8 +68,7 @@ COPY ./etc/ /etc/
 
 RUN \
   cd /var/www/magento2 \
-  && tar -cvzpf mage2.tar.gz . \
-  && mv mage2.tar.gz /var/www \
+  && bsdtar -cvzpf /var/www/backup.tar.gz . \
   && rm -rf /var/www/magento2
 
 WORKDIR /var/www/html
