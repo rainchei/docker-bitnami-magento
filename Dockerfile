@@ -79,4 +79,4 @@ WORKDIR /var/www/html
 
 ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 
-CMD ["bash", "-c", "/var/www/html/entrypoint.sh"]
+CMD ["bash", "-c", "entrypoint.sh"]
