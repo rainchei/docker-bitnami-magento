@@ -44,39 +44,10 @@ RUN \
   && mkdir -p /var/run/php \
   && chmod +x /usr/bin/tini
 
-# Install magento2
-RUN \
-  mkdir -p /var/www \
-  && cd /var/www \
-  && wget https://github.com/magento/magento2/archive/2.3.4.tar.gz \
-  && bsdtar -xf 2.3.4.tar.gz \
-  && mv magento2-2.3.4 magento2 \
-  && rm 2.3.4.tar.gz
-
-# Generate code and static contents
-COPY ./magento2/ /var/www/magento2/
-
-RUN \
-  cd /var/www/magento2 \
-  && composer install -v \
-  && ./bin/magento setup:di:compile --no-interaction --no-ansi \
-  && ./bin/magento setup:static-content:deploy --no-interaction --no-ansi \
-    --strategy=compact \
-    -f \
-  && chown -R www-data:www-data /var/www/magento2/
-
-# Post install
-COPY ./etc/ /etc/
-
-RUN \
-  cd /var/www/magento2 \
-  && bsdtar -cvzpf /var/www/mage2bak.tar.gz . \
-  && rm -rf /var/www/magento2
-
 WORKDIR /var/www/html
 
 # ---
 
 ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
 
-CMD ["bash", "entrypoint.sh"]
+CMD ["bash", "bin/entrypoint.sh"]
