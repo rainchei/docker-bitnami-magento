@@ -1,4 +1,10 @@
-FROM rainchei/docker-magento-phpfpm:foo AS build_stage
+ARG MAGENTO_PHPFPM=rainchei/docker-magento-phpfpm:1.0.0-83-g70a00f43-20200323
+
+ARG MAGENTO_BUSYBOX=rainchei/docker-magento-busybox:1.0.0-83-g70a00f43-20200323
+
+# ---
+
+FROM $MAGENTO_PHPFPM AS built_contents
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PHP_VERSION=7.2 \
@@ -53,7 +59,7 @@ RUN \
   && mv magento2-2.3.4 magento2 \
   && rm 2.3.4.tar.gz
 
-# Generate code and static contents
+# Generate codes and static contents
 COPY ./magento2/ /var/www/magento2/
 
 RUN \
@@ -72,7 +78,7 @@ RUN \
 
 # ---
 
-FROM rainchei/docker-magento-busybox:foo
+FROM $MAGENTO_BUSYBOX
 
-COPY --from=build_stage
+COPY --from=built_contents /var/www/mage2bak.tar.gz /var/www/
 
