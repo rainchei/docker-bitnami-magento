@@ -1,7 +1,7 @@
 #!/bin/bash
 
 setenv() {
-  BASE="rainchei/docker-magento-phpfpm"
+  BASE="rainchei/docker-magento-contents"
   BUILD_DATE="$(date '+%Y%m%d')"
   TAG="$(git describe --dirty)-${BUILD_DATE}"
 }
