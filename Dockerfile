@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM rainchei/docker-magento-phpfpm:foo AS build_stage
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PHP_VERSION=7.2 \
@@ -65,18 +65,14 @@ RUN \
     -f \
   && chown -R www-data:www-data /var/www/magento2/
 
-# Post install
-COPY ./etc/ /etc/
-
+# Wrap-up
 RUN \
   cd /var/www/magento2 \
-  && bsdtar -cvzpf /var/www/mage2bak.tar.gz . \
-  && rm -rf /var/www/magento2
-
-WORKDIR /var/www/html
+  && bsdtar -cvzpf /var/www/mage2bak.tar.gz .
 
 # ---
 
-ENTRYPOINT ["/usr/bin/tini", "-g", "--"]
+FROM rainchei/docker-magento-busybox:foo
 
-CMD ["bash", "entrypoint.sh"]
+COPY --from=build_stage
+
