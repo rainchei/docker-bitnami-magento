@@ -6,50 +6,6 @@ ARG MAGENTO_BUSYBOX=rainchei/docker-magento-busybox:1.0.0-83-g70a00f43-20200323
 
 FROM $MAGENTO_PHPFPM AS built_contents
 
-ENV DEBIAN_FRONTEND=noninteractive \
-    PHP_VERSION=7.2 \
-    TINI_VERSION=v0.18.0
-
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
-
-RUN \
-  ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime \
-  && apt-get -y clean \
-  && apt-get -y update \
-  && apt-get -y upgrade \
-  && apt-get install -y --no-install-recommends \
-    software-properties-common \
-    tzdata \
-    locales \
-    curl \
-    vim \
-    net-tools \
-    bsdtar \
-    wget \
-    gosu \
-  && locale-gen en_US.UTF-8 \
-  && LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php -y \
-  && apt-get install -y \
-    php${PHP_VERSION}-fpm \
-    php${PHP_VERSION}-curl \
-    php${PHP_VERSION}-cli \
-    php${PHP_VERSION}-mysql \
-    php${PHP_VERSION}-gd \
-    php${PHP_VERSION}-xsl \
-    php${PHP_VERSION}-json \
-    php${PHP_VERSION}-intl \
-    php${PHP_VERSION}-dev \
-    php${PHP_VERSION}-common \
-    php${PHP_VERSION}-mbstring \
-    php${PHP_VERSION}-zip \
-    php${PHP_VERSION}-soap \
-    php${PHP_VERSION}-bcmath \
-    php-pear \
-  && apt-get install -y \
-    composer \
-  && mkdir -p /var/run/php \
-  && chmod +x /usr/bin/tini
-
 # Install magento2
 RUN \
   mkdir -p /var/www \
