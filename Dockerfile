@@ -23,7 +23,7 @@ COPY ./magento2/ /var/www/magento2/
 ENV GITHUB_PAT=$GITHUB_PAT
 
 RUN \
-  echo "${GITHUB_PAT}"
+  echo $GITHUB_PAT
 
 RUN \
   cd /var/www/magento2 \
