@@ -24,7 +24,7 @@ ENV GITHUB_PAT=$GITHUB_PAT
 
 RUN \
   cd /var/www/magento2 \
-  && dockerize -template ./composer.json.tmpl:./composer.json \
+  && dockerize -template /var/www/magento2/composer.json.tmpl:./composer.json \
   && composer install -v \
   && ./bin/magento setup:di:compile --no-interaction --no-ansi \
   && ./bin/magento setup:static-content:deploy --no-interaction --no-ansi \
