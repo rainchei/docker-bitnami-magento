@@ -25,7 +25,7 @@ usage() {
 main() {
   cd $(dirname $0)
   find . -type f -name '.DS_Store' -delete
-  setenv
+  setenv $@
   [[ -z ${MAGENTO_PHPFPM} ]] || [[ -z ${MAGENTO_BUSYBOX} ]] || [[ -z ${GITHUB_PAT} ]] && usage
 
   # you must commit changes first
@@ -57,4 +57,4 @@ main() {
 
 ## ================================================
 
-main
+main $@
