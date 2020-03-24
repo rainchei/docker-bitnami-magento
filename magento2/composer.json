@@ -8,7 +8,10 @@
     ],
     "config": {
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "github-oauth": {
+            "github.com": "90a2cd25fe9f6eaf93ad6114d9fceb56921e2d70"
+        }
     },
     "require": {
         "php": "~7.1.3||~7.2.0||~7.3.0",
