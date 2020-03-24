@@ -1,6 +1,8 @@
-ARG MAGENTO_PHPFPM=rainchei/docker-magento-phpfpm:1.0.0-93-g7cb5036a-20200324
+ARG MAGENTO_PHPFPM
 
-ARG MAGENTO_BUSYBOX=rainchei/docker-magento-busybox:1.0.0-83-g70a00f43-20200323
+ARG MAGENTO_BUSYBOX
+
+ARG GITHUB_PAT
 
 # ---
 
@@ -18,8 +20,11 @@ RUN \
 # Generate codes and static contents
 COPY ./magento2/ /var/www/magento2/
 
+ENV GITHUB_PAT=$GITHUB_PAT
+
 RUN \
   cd /var/www/magento2 \
+  && dockerize -template ./composer.json.tmpl:./composer.json \
   && composer install -v \
   && ./bin/magento setup:di:compile --no-interaction --no-ansi \
   && ./bin/magento setup:static-content:deploy --no-interaction --no-ansi \
