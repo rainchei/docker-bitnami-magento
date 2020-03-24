@@ -2,7 +2,8 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PHP_VERSION=7.2 \
-    TINI_VERSION=v0.18.0
+    TINI_VERSION=v0.18.0 \
+    DOCKERIZE_VERSION=v0.6.1
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 
@@ -39,8 +40,9 @@ RUN \
     php${PHP_VERSION}-soap \
     php${PHP_VERSION}-bcmath \
     php-pear \
-  && apt-get install -y \
     composer \
+  && curl -sSLf "https://github.com/jwilder/dockerize/releases/download/${DOCKERIZE_VERSION}/dockerize-linux-amd64-${DOCKERIZE_VERSION}.tar.gz" \
+    | bsdtar -C /usr/bin -xzvf - dockerize \
   && mkdir -p /var/run/php \
   && chmod +x /usr/bin/tini
 
