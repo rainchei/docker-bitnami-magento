@@ -2,11 +2,11 @@ ARG MAGENTO_PHPFPM
 
 ARG MAGENTO_BUSYBOX
 
-ARG GITHUB_PAT
-
 # ---
 
 FROM $MAGENTO_PHPFPM AS built_contents
+
+ARG GITHUB_PAT
 
 # Install magento2
 RUN \
