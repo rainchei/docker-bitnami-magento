@@ -20,8 +20,6 @@ RUN \
 # Generate codes and static contents
 COPY ./magento2/ /var/www/magento2/
 
-ENV GITHUB_PAT=$GITHUB_PAT
-
 RUN \
   echo $GITHUB_PAT
 
