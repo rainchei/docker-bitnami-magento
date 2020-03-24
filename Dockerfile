@@ -2,11 +2,11 @@ ARG MAGENTO_PHPFPM
 
 ARG MAGENTO_BUSYBOX
 
+ARG GITHUB_PAT
+
 # ---
 
 FROM $MAGENTO_PHPFPM AS built_contents
-
-ARG GITHUB_PAT
 
 # Install magento2
 RUN \
@@ -19,9 +19,6 @@ RUN \
 
 # Generate codes and static contents
 COPY ./magento2/ /var/www/magento2/
-
-RUN \
-  echo $GITHUB_PAT
 
 RUN \
   cd /var/www/magento2 \
