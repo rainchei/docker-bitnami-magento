@@ -1,4 +1,4 @@
-ARG MAGENTO_PHPFPM=rainchei/docker-magento-phpfpm:1.0.0-83-g70a00f43-20200323
+ARG MAGENTO_PHPFPM=rainchei/docker-magento-phpfpm:1.0.0-93-g7cb5036a-20200324
 
 ARG MAGENTO_BUSYBOX=rainchei/docker-magento-busybox:1.0.0-83-g70a00f43-20200323
 
