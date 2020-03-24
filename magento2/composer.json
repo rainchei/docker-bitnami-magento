@@ -10,7 +10,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "github-oauth": {
-            "github.com": "90a2cd25fe9f6eaf93ad6114d9fceb56921e2d70"
+            "github.com": "12476486a7a8e6f0825788af51b6fd4f9edfb0f5"
         }
     },
     "require": {
