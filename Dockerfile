@@ -23,6 +23,9 @@ COPY ./magento2/ /var/www/magento2/
 ENV GITHUB_PAT=$GITHUB_PAT
 
 RUN \
+  echo "${GITHUB_PAT}"
+
+RUN \
   cd /var/www/magento2 \
   && dockerize -template /var/www/magento2/composer.json.tmpl:./composer.json \
   && composer install -v \
