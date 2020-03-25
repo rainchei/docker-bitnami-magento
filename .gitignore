@@ -46,7 +46,6 @@ magento2/vendor/*
 magento2/generated/*
 magento2/lib/*
 magento2/bin/magento
-magento2/composer.json
 
 *.sample
 *.DS_Store
