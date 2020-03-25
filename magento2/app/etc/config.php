@@ -235,21 +235,13 @@ return [
      * Shared configuration was written to config.php and system-specific configuration to env.php.
      * Shared configuration file (config.php) doesn't contain sensitive data for security reasons.
      * Sensitive data can be stored in the following environment variables:
-     * CONFIG__DEFAULT__ADMIN__URL__CUSTOM for admin/url/custom
      * CONFIG__DEFAULT__DEV__RESTRICT__ALLOW_IPS for dev/restrict/allow_ips
      * CONFIG__DEFAULT__SYSTEM__SMTP__HOST for system/smtp/host
+     * CONFIG__DEFAULT__ADMIN__URL__CUSTOM for admin/url/custom
      * CONFIG__DEFAULT__CURRENCY__IMPORT__ERROR_EMAIL for currency/import/error_email
      * CONFIG__DEFAULT__CATALOG__SEARCH__ELASTICSEARCH_SERVER_HOSTNAME for catalog/search/elasticsearch_server_hostname
      * CONFIG__DEFAULT__CATALOG__SEARCH__ELASTICSEARCH5_SERVER_HOSTNAME for catalog/search/elasticsearch5_server_hostname
-     * CONFIG__DEFAULT__CATALOG__SEARCH__ELASTICSEARCH6_SERVER_HOSTNAME for catalog/search/elasticsearch6_server_hostname
      * CONFIG__DEFAULT__CATALOG__PRODUCTALERT_CRON__ERROR_EMAIL for catalog/productalert_cron/error_email
-     * CONFIG__DEFAULT__PAYMENT__AUTHORIZENET_DIRECTPOST__EMAIL_CUSTOMER for payment/authorizenet_directpost/email_customer
-     * CONFIG__DEFAULT__PAYMENT__AUTHORIZENET_DIRECTPOST__LOGIN for payment/authorizenet_directpost/login
-     * CONFIG__DEFAULT__PAYMENT__AUTHORIZENET_DIRECTPOST__MERCHANT_EMAIL for payment/authorizenet_directpost/merchant_email
-     * CONFIG__DEFAULT__PAYMENT__AUTHORIZENET_DIRECTPOST__TRANS_KEY for payment/authorizenet_directpost/trans_key
-     * CONFIG__DEFAULT__PAYMENT__AUTHORIZENET_DIRECTPOST__TRANS_MD5 for payment/authorizenet_directpost/trans_md5
-     * CONFIG__DEFAULT__PAYMENT__AUTHORIZENET_DIRECTPOST__CGI_URL for payment/authorizenet_directpost/cgi_url
-     * CONFIG__DEFAULT__PAYMENT__AUTHORIZENET_DIRECTPOST__CGI_URL_TD for payment/authorizenet_directpost/cgi_url_td
      * CONFIG__DEFAULT__PAYMENT__PAYFLOWPRO__USER for payment/payflowpro/user
      * CONFIG__DEFAULT__PAYMENT__PAYFLOWPRO__PWD for payment/payflowpro/pwd
      * CONFIG__DEFAULT__PAYMENT__PAYFLOW_LINK__PWD for payment/payflow_link/pwd
@@ -261,26 +253,6 @@ return [
      * CONFIG__DEFAULT__PAYMENT__AUTHORIZENET_ACCEPTJS__TRANS_MD5 for payment/authorizenet_acceptjs/trans_md5
      * CONFIG__DEFAULT__PAYMENT__BRAINTREE__PRIVATE_KEY for payment/braintree/private_key
      * CONFIG__DEFAULT__CONTACT__EMAIL__RECIPIENT_EMAIL for contact/email/recipient_email
-     * CONFIG__DEFAULT__CARRIERS__DHL__ACCOUNT for carriers/dhl/account
-     * CONFIG__DEFAULT__CARRIERS__DHL__GATEWAY_URL for carriers/dhl/gateway_url
-     * CONFIG__DEFAULT__CARRIERS__DHL__ID for carriers/dhl/id
-     * CONFIG__DEFAULT__CARRIERS__DHL__PASSWORD for carriers/dhl/password
-     * CONFIG__DEFAULT__CARRIERS__FEDEX__ACCOUNT for carriers/fedex/account
-     * CONFIG__DEFAULT__CARRIERS__FEDEX__METER_NUMBER for carriers/fedex/meter_number
-     * CONFIG__DEFAULT__CARRIERS__FEDEX__KEY for carriers/fedex/key
-     * CONFIG__DEFAULT__CARRIERS__FEDEX__PASSWORD for carriers/fedex/password
-     * CONFIG__DEFAULT__CARRIERS__FEDEX__PRODUCTION_WEBSERVICES_URL for carriers/fedex/production_webservices_url
-     * CONFIG__DEFAULT__CARRIERS__FEDEX__SANDBOX_WEBSERVICES_URL for carriers/fedex/sandbox_webservices_url
-     * CONFIG__DEFAULT__CARRIERS__UPS__ACCESS_LICENSE_NUMBER for carriers/ups/access_license_number
-     * CONFIG__DEFAULT__CARRIERS__UPS__GATEWAY_URL for carriers/ups/gateway_url
-     * CONFIG__DEFAULT__CARRIERS__UPS__GATEWAY_XML_URL for carriers/ups/gateway_xml_url
-     * CONFIG__DEFAULT__CARRIERS__UPS__TRACKING_XML_URL for carriers/ups/tracking_xml_url
-     * CONFIG__DEFAULT__CARRIERS__UPS__USERNAME for carriers/ups/username
-     * CONFIG__DEFAULT__CARRIERS__UPS__PASSWORD for carriers/ups/password
-     * CONFIG__DEFAULT__CARRIERS__USPS__GATEWAY_URL for carriers/usps/gateway_url
-     * CONFIG__DEFAULT__CARRIERS__USPS__GATEWAY_SECURE_URL for carriers/usps/gateway_secure_url
-     * CONFIG__DEFAULT__CARRIERS__USPS__USERID for carriers/usps/userid
-     * CONFIG__DEFAULT__CARRIERS__USPS__PASSWORD for carriers/usps/password
      * CONFIG__DEFAULT__TRANS_EMAIL__IDENT_CUSTOM1__EMAIL for trans_email/ident_custom1/email
      * CONFIG__DEFAULT__TRANS_EMAIL__IDENT_CUSTOM1__NAME for trans_email/ident_custom1/name
      * CONFIG__DEFAULT__TRANS_EMAIL__IDENT_CUSTOM2__EMAIL for trans_email/ident_custom2/email
@@ -297,67 +269,14 @@ return [
      * CONFIG__DEFAULT__ANALYTICS__URL__OTP for analytics/url/otp
      * CONFIG__DEFAULT__ANALYTICS__URL__REPORT for analytics/url/report
      * CONFIG__DEFAULT__ANALYTICS__URL__NOTIFY_DATA_CHANGED for analytics/url/notify_data_changed
-     * CONFIG__DEFAULT__NEWRELICREPORTING__GENERAL__API_URL for newrelicreporting/general/api_url
-     * CONFIG__DEFAULT__NEWRELICREPORTING__GENERAL__INSIGHTS_API_URL for newrelicreporting/general/insights_api_url
      * CONFIG__DEFAULT__PAYPAL__WPP__API_PASSWORD for paypal/wpp/api_password
      * CONFIG__DEFAULT__PAYPAL__WPP__API_SIGNATURE for paypal/wpp/api_signature
      * CONFIG__DEFAULT__PAYPAL__WPP__API_USERNAME for paypal/wpp/api_username
      * CONFIG__DEFAULT__PAYPAL__FETCH_REPORTS__FTP_LOGIN for paypal/fetch_reports/ftp_login
      * CONFIG__DEFAULT__PAYPAL__FETCH_REPORTS__FTP_PASSWORD for paypal/fetch_reports/ftp_password
-     * CONFIG__DEFAULT__FRAUD_PROTECTION__SIGNIFYD__API_URL for fraud_protection/signifyd/api_url
-     * CONFIG__DEFAULT__FRAUD_PROTECTION__SIGNIFYD__API_KEY for fraud_protection/signifyd/api_key
-     * CONFIG__DEFAULT__SITEMAP__GENERATE__ERROR_EMAIL for sitemap/generate/error_email
      */
     'system' => [
         'default' => [
-            'admin' => [
-                'usage' => [
-                    'enabled' => '0',
-                ],
-                'startup' => [
-                    'menu_item_id' => 'dashboard',
-                ],
-                'url' => [
-                    'use_custom' => '0',
-                    'use_custom_path' => '0',
-                ],
-                'security' => [
-                    'use_form_key' => '1',
-                    'admin_account_sharing' => '0',
-                    'password_reset_protection_type' => '1',
-                    'max_number_password_reset_requests' => '5',
-                    'min_time_between_password_reset_requests' => '10',
-                    'password_reset_link_expiration_period' => '2',
-                    'lockout_failures' => '6',
-                    'lockout_threshold' => '30',
-                    'password_lifetime' => '90',
-                    'password_is_forced' => '1',
-                    'session_lifetime' => '900',
-                ],
-                'emails' => [
-                    'forgot_email_template' => 'admin_emails_forgot_email_template',
-                    'new_user_notification_template' => 'admin_emails_new_user_notification_template',
-                    'forgot_email_identity' => 'general',
-                    'user_notification_template' => 'admin_emails_user_notification_template',
-                ],
-                'captcha' => [
-                    'type' => 'default',
-                    'enable' => '1',
-                    'font' => 'linlibertine',
-                    'mode' => 'after_fail',
-                    'forms' => 'backend_forgotpassword,backend_login',
-                    'failed_attempts_login' => '3',
-                    'failed_attempts_ip' => '1000',
-                    'timeout' => '7',
-                    'length' => '4-5',
-                    'symbols' => 'ABCDEFGHJKMnpqrstuvwxyz23456789',
-                    'case_sensitive' => '0',
-                    'shown_to_logged_in_user' => null,
-                    'always_for' => [
-                        'backend_forgotpassword' => '1',
-                    ],
-                ],
-            ],
             'design' => [
                 'pagination' => [
                     'list_allow_all' => '1',
@@ -517,14 +436,6 @@ Disallow: /*SID=
                 'backup' => [
                     'functionality_enabled' => '0',
                 ],
-                'adminnotification' => [
-                    'feed_url' => 'notifications.magentocommerce.com/magento2/community/notifications.rss',
-                    'popup_url' => 'widgets.magentocommerce.com/notificationPopup',
-                    'severity_icons_url' => 'widgets.magentocommerce.com/%s/%s.gif',
-                    'use_https' => '1',
-                    'frequency' => '1',
-                    'last_update' => '0',
-                ],
                 'bulk' => [
                     'lifetime' => '60',
                 ],
@@ -550,12 +461,6 @@ Disallow: /*SID=
                         'ttl' => '86400',
                         'grace_period' => '300',
                     ],
-                ],
-                'mysqlmq' => [
-                    'retry_inprogress_after' => '1440',
-                    'new_messages_lifetime' => '10080',
-                    'successful_messages_lifetime' => '10080',
-                    'failed_messages_lifetime' => '10080',
                 ],
                 'release_notification' => [
                     'content_url' => 'magento.com/release_notifications',
@@ -589,6 +494,20 @@ Disallow: /*SID=
                         'history_failure_lifetime' => '600',
                         'use_separate_process' => '1',
                     ],
+                ],
+                'adminnotification' => [
+                    'feed_url' => 'notifications.magentocommerce.com/magento2/community/notifications.rss',
+                    'popup_url' => 'widgets.magentocommerce.com/notificationPopup',
+                    'severity_icons_url' => 'widgets.magentocommerce.com/%s/%s.gif',
+                    'use_https' => '1',
+                    'frequency' => '1',
+                    'last_update' => '0',
+                ],
+                'mysqlmq' => [
+                    'retry_inprogress_after' => '1440',
+                    'new_messages_lifetime' => '10080',
+                    'successful_messages_lifetime' => '10080',
+                    'failed_messages_lifetime' => '10080',
                 ],
             ],
             'web' => [
@@ -635,6 +554,54 @@ Disallow: /*SID=
                     'cookie_httponly' => '1',
                     'cookie_restriction' => '0',
                     'cookie_restriction_lifetime' => '31536000',
+                ],
+            ],
+            'admin' => [
+                'startup' => [
+                    'menu_item_id' => 'dashboard',
+                ],
+                'url' => [
+                    'use_custom' => '0',
+                    'use_custom_path' => '0',
+                ],
+                'security' => [
+                    'use_form_key' => '1',
+                    'admin_account_sharing' => '0',
+                    'password_reset_protection_type' => '1',
+                    'max_number_password_reset_requests' => '5',
+                    'min_time_between_password_reset_requests' => '10',
+                    'password_reset_link_expiration_period' => '2',
+                    'lockout_failures' => '6',
+                    'lockout_threshold' => '30',
+                    'password_lifetime' => '90',
+                    'password_is_forced' => '1',
+                    'session_lifetime' => '900',
+                ],
+                'emails' => [
+                    'forgot_email_template' => 'admin_emails_forgot_email_template',
+                    'new_user_notification_template' => 'admin_emails_new_user_notification_template',
+                    'forgot_email_identity' => 'general',
+                    'user_notification_template' => 'admin_emails_user_notification_template',
+                ],
+                'captcha' => [
+                    'type' => 'default',
+                    'enable' => '1',
+                    'font' => 'linlibertine',
+                    'mode' => 'after_fail',
+                    'forms' => 'backend_forgotpassword,backend_login',
+                    'failed_attempts_login' => '3',
+                    'failed_attempts_ip' => '1000',
+                    'timeout' => '7',
+                    'length' => '4-5',
+                    'symbols' => 'ABCDEFGHJKMnpqrstuvwxyz23456789',
+                    'case_sensitive' => '0',
+                    'shown_to_logged_in_user' => null,
+                    'always_for' => [
+                        'backend_forgotpassword' => '1',
+                    ],
+                ],
+                'usage' => [
+                    'enabled' => '0',
                 ],
             ],
             'general' => [
@@ -853,8 +820,8 @@ Disallow: /*SID=
                         'contact_us' => '1',
                         'user_edit' => '1',
                         'product_sendtofriend_form' => '1',
-                        'co-payment-form' => '1',
                         'share_wishlist_form' => '1',
+                        'co-payment-form' => '1',
                     ],
                     'type' => 'default',
                     'enable' => '1',
@@ -958,14 +925,6 @@ Disallow: /*SID=
                     'content_disposition' => 'inline',
                     'disable_guest_checkout' => '1',
                 ],
-                'layered_navigation' => [
-                    'price_range_calculation' => 'auto',
-                    'price_range_step' => '100',
-                    'price_range_max_intervals' => '10',
-                    'one_price_interval' => '0',
-                    'interval_division_limit' => '9',
-                    'display_product_count' => '1',
-                ],
                 'productalert' => [
                     'allow_price' => '0',
                     'allow_stock' => '0',
@@ -977,17 +936,25 @@ Disallow: /*SID=
                     'error_email_template' => 'catalog_productalert_cron_error_email_template',
                     'error_email_identity' => 'general',
                 ],
-                'product_video' => [
-                    'play_if_base' => '0',
-                    'show_related' => '0',
-                    'video_auto_restart' => '0',
-                ],
                 'review' => [
                     'active' => '1',
                     'allow_guest' => '1',
                 ],
                 'category' => [
                     'root_id' => '2',
+                ],
+                'layered_navigation' => [
+                    'price_range_calculation' => 'auto',
+                    'price_range_step' => '100',
+                    'price_range_max_intervals' => '10',
+                    'one_price_interval' => '0',
+                    'interval_division_limit' => '9',
+                    'display_product_count' => '1',
+                ],
+                'product_video' => [
+                    'play_if_base' => '0',
+                    'show_related' => '0',
+                    'video_auto_restart' => '0',
                 ],
             ],
             'indexer' => [
@@ -1074,57 +1041,6 @@ Disallow: /*SID=
                     'active' => '0',
                     'model' => 'Magento\\Payment\\Model\\Method\\Substitution',
                     'allowspecific' => '0',
-                ],
-                'checkmo' => [
-                    'active' => '1',
-                    'model' => 'Magento\\OfflinePayments\\Model\\Checkmo',
-                    'order_status' => 'pending',
-                    'title' => 'Check / Money order',
-                    'allowspecific' => '0',
-                    'group' => 'offline',
-                ],
-                'purchaseorder' => [
-                    'active' => '0',
-                    'model' => 'Magento\\OfflinePayments\\Model\\Purchaseorder',
-                    'order_status' => 'pending',
-                    'title' => 'Purchase Order',
-                    'allowspecific' => '0',
-                    'group' => 'offline',
-                ],
-                'banktransfer' => [
-                    'active' => '0',
-                    'model' => 'Magento\\OfflinePayments\\Model\\Banktransfer',
-                    'order_status' => 'pending',
-                    'title' => 'Bank Transfer Payment',
-                    'allowspecific' => '0',
-                    'group' => 'offline',
-                ],
-                'cashondelivery' => [
-                    'active' => '0',
-                    'model' => 'Magento\\OfflinePayments\\Model\\Cashondelivery',
-                    'order_status' => 'pending',
-                    'title' => 'Cash On Delivery',
-                    'allowspecific' => '0',
-                    'group' => 'offline',
-                ],
-                'authorizenet_directpost' => [
-                    'active' => '0',
-                    'cctypes' => 'AE,VI,MC,DI,JCB,DN',
-                    'model' => 'Magento\\Authorizenet\\Model\\Directpost',
-                    'order_status' => 'processing',
-                    'payment_action' => 'authorize',
-                    'title' => 'Credit Card Direct Post (Authorize.Net)',
-                    'signature_key' => null,
-                    'allowspecific' => '0',
-                    'currency' => 'USD',
-                    'create_order_before' => '1',
-                    'date_delim' => '/',
-                    'ccfields' => 'x_card_code,x_exp_date,x_card_num',
-                    'place_order_url' => 'authorizenet/directpost_payment/place',
-                    'cgi_url_test_mode' => 'https://test.authorize.net/gateway/transact.dll',
-                    'cgi_url_td_test_mode' => 'https://apitest.authorize.net/xml/v1/request.api',
-                    'paymentInfoKeys' => 'x_card_type,x_account_number,x_avs_code,x_auth_code,x_response_reason_text,x_cvv2_resp_code',
-                    'group' => 'authorizenet',
                 ],
                 'vault' => [
                     'debug' => '1',
@@ -1367,6 +1283,57 @@ Disallow: /*SID=
                     ],
                     'group' => 'braintree_group',
                 ],
+                'checkmo' => [
+                    'active' => '1',
+                    'model' => 'Magento\\OfflinePayments\\Model\\Checkmo',
+                    'order_status' => 'pending',
+                    'title' => 'Check / Money order',
+                    'allowspecific' => '0',
+                    'group' => 'offline',
+                ],
+                'purchaseorder' => [
+                    'active' => '0',
+                    'model' => 'Magento\\OfflinePayments\\Model\\Purchaseorder',
+                    'order_status' => 'pending',
+                    'title' => 'Purchase Order',
+                    'allowspecific' => '0',
+                    'group' => 'offline',
+                ],
+                'banktransfer' => [
+                    'active' => '0',
+                    'model' => 'Magento\\OfflinePayments\\Model\\Banktransfer',
+                    'order_status' => 'pending',
+                    'title' => 'Bank Transfer Payment',
+                    'allowspecific' => '0',
+                    'group' => 'offline',
+                ],
+                'cashondelivery' => [
+                    'active' => '0',
+                    'model' => 'Magento\\OfflinePayments\\Model\\Cashondelivery',
+                    'order_status' => 'pending',
+                    'title' => 'Cash On Delivery',
+                    'allowspecific' => '0',
+                    'group' => 'offline',
+                ],
+                'authorizenet_directpost' => [
+                    'active' => '0',
+                    'cctypes' => 'AE,VI,MC,DI,JCB,DN',
+                    'model' => 'Magento\\Authorizenet\\Model\\Directpost',
+                    'order_status' => 'processing',
+                    'payment_action' => 'authorize',
+                    'title' => 'Credit Card Direct Post (Authorize.Net)',
+                    'signature_key' => null,
+                    'allowspecific' => '0',
+                    'currency' => 'USD',
+                    'create_order_before' => '1',
+                    'date_delim' => '/',
+                    'ccfields' => 'x_card_code,x_exp_date,x_card_num',
+                    'place_order_url' => 'authorizenet/directpost_payment/place',
+                    'cgi_url_test_mode' => 'https://test.authorize.net/gateway/transact.dll',
+                    'cgi_url_td_test_mode' => 'https://apitest.authorize.net/xml/v1/request.api',
+                    'paymentInfoKeys' => 'x_card_type,x_account_number,x_avs_code,x_auth_code,x_response_reason_text,x_cvv2_resp_code',
+                    'group' => 'authorizenet',
+                ],
             ],
             'sales_email' => [
                 'general' => [
@@ -1496,11 +1463,11 @@ Disallow: /*SID=
                         'product_sendtofriend_form' => [
                             'label' => 'Send To Friend Form',
                         ],
-                        'co-payment-form' => [
-                            'label' => 'Payflow Pro',
-                        ],
                         'share_wishlist_form' => [
                             'label' => 'Share Wishlist Form',
+                        ],
+                        'co-payment-form' => [
+                            'label' => 'Payflow Pro',
                         ],
                     ],
                 ],
@@ -1547,6 +1514,231 @@ Disallow: /*SID=
                 'access_token_lifetime' => [
                     'customer' => '1',
                     'admin' => '4',
+                ],
+            ],
+            'import' => [
+                'format_v1' => [
+                    'page_size' => '5000',
+                ],
+                'format_v2' => [
+                    'page_size' => '10000',
+                    'bunch_size' => '100',
+                ],
+            ],
+            'three_d_secure' => [
+                'cardinal' => [
+                    'environment' => 'production',
+                    'api_key' => null,
+                    'org_unit_id' => null,
+                    'api_identifier' => null,
+                    'debug' => '0',
+                    'enabled_authorizenet' => '0',
+                ],
+            ],
+            'analytics' => [
+                'integration_name' => 'Magento Analytics user',
+                'general' => [
+                    'collection_time' => '02,00,00',
+                ],
+                'subscription' => [
+                    'enabled' => '1',
+                ],
+            ],
+            'multishipping' => [
+                'options' => [
+                    'checkout_multiple' => '1',
+                    'checkout_multiple_maximum_qty' => '100',
+                ],
+            ],
+            'newsletter' => [
+                'general' => [
+                    'active' => '1',
+                ],
+                'subscription' => [
+                    'allow_guest_subscribe' => '1',
+                    'confirm' => '0',
+                    'confirm_email_identity' => 'support',
+                    'confirm_email_template' => 'newsletter_subscription_confirm_email_template',
+                    'success_email_identity' => 'general',
+                    'success_email_template' => 'newsletter_subscription_success_email_template',
+                    'un_email_identity' => 'support',
+                    'un_email_template' => 'newsletter_subscription_un_email_template',
+                ],
+                'sending' => [
+                    'set_return_path' => '0',
+                ],
+            ],
+            'promo' => [
+                'auto_generated_coupon_codes' => [
+                    'length' => '12',
+                    'format' => '1',
+                ],
+            ],
+            'paypal' => [
+                'style' => [
+                    'logo' => null,
+                    'checkout_page_button_customize' => '0',
+                    'checkout_page_button_label' => 'paypal',
+                    'checkout_page_button_layout' => 'vertical',
+                    'checkout_page_button_size' => 'responsive',
+                    'checkout_page_button_shape' => 'rect',
+                    'checkout_page_button_color' => 'gold',
+                    'product_page_button_customize' => '0',
+                    'product_page_button_label' => 'buynow',
+                    'product_page_button_layout' => 'horizontal',
+                    'product_page_button_size' => 'responsive',
+                    'product_page_button_shape' => 'pill',
+                    'product_page_button_color' => 'gold',
+                    'cart_page_button_customize' => '0',
+                    'cart_page_button_label' => 'paypal',
+                    'cart_page_button_layout' => 'vertical',
+                    'cart_page_button_size' => 'responsive',
+                    'cart_page_button_shape' => 'rect',
+                    'cart_page_button_color' => 'gold',
+                    'mini_cart_page_button_customize' => '0',
+                    'mini_cart_page_button_label' => 'paypal',
+                    'mini_cart_page_button_layout' => 'vertical',
+                    'mini_cart_page_button_size' => 'responsive',
+                    'mini_cart_page_button_shape' => 'rect',
+                    'mini_cart_page_button_color' => 'gold',
+                ],
+                'wpp' => [
+                    'button_flavor' => 'dynamic',
+                ],
+                'wpuk' => [
+                    'user' => null,
+                    'pwd' => null,
+                ],
+                'fetch_reports' => [
+                    'schedule' => '1',
+                    'time' => '00,00,00',
+                ],
+            ],
+            'reports' => [
+                'dashboard' => [
+                    'ytd_start' => '1,1',
+                    'mtd_start' => '1',
+                ],
+                'options' => [
+                    'enabled' => '0',
+                    'product_view_enabled' => '1',
+                    'product_send_enabled' => '1',
+                    'product_compare_enabled' => '1',
+                    'product_to_cart_enabled' => '1',
+                    'product_to_wishlist_enabled' => '1',
+                    'wishlist_share_enabled' => '1',
+                ],
+            ],
+            'url_rewrite' => [
+                'entity_types' => [
+                    'product' => [
+                        'generator' => 'Magento\\Framework\\DataObject',
+                    ],
+                    'category' => [
+                        'generator' => 'Magento\\Framework\\DataObject',
+                    ],
+                    'cms-page' => [
+                        'generator' => 'Magento\\Framework\\DataObject',
+                    ],
+                ],
+            ],
+            'sendfriend' => [
+                'email' => [
+                    'enabled' => '0',
+                    'template' => 'sendfriend_email_template',
+                    'allow_guest' => '0',
+                    'max_recipients' => '5',
+                    'max_per_hour' => '5',
+                    'check_by' => '0',
+                ],
+            ],
+            'shipping' => [
+                'origin' => [
+                    'country_id' => 'US',
+                    'postcode' => '90034',
+                    'region_id' => '12',
+                ],
+            ],
+            'tax' => [
+                'classes' => [
+                    'shipping_tax_class' => '0',
+                    'default_product_tax_class' => '2',
+                    'default_customer_tax_class' => '3',
+                ],
+                'calculation' => [
+                    'algorithm' => 'TOTAL_BASE_CALCULATION',
+                    'apply_after_discount' => '1',
+                    'discount_tax' => '0',
+                    'based_on' => 'shipping',
+                    'price_includes_tax' => '0',
+                    'shipping_includes_tax' => '0',
+                    'apply_tax_on' => '0',
+                ],
+                'defaults' => [
+                    'country' => 'US',
+                    'region' => '0',
+                ],
+                'display' => [
+                    'type' => '1',
+                    'shipping' => '1',
+                ],
+                'cart_display' => [
+                    'price' => '1',
+                    'subtotal' => '1',
+                    'shipping' => '1',
+                    'discount' => '1',
+                    'grandtotal' => '0',
+                    'full_summary' => '0',
+                    'zero_tax' => '0',
+                ],
+                'sales_display' => [
+                    'price' => '1',
+                    'subtotal' => '1',
+                    'shipping' => '1',
+                    'discount' => '1',
+                    'grandtotal' => '0',
+                    'full_summary' => '0',
+                    'zero_tax' => '0',
+                ],
+                'notification' => [
+                    'info_url' => 'https://docs.magento.com/m2/ce/user_guide/tax/warning-messages.html',
+                ],
+                'weee' => [
+                    'enable' => '0',
+                    'display' => '1',
+                    'display_list' => '1',
+                    'display_sales' => '1',
+                    'display_email' => '1',
+                    'apply_vat' => '0',
+                    'include_in_subtotal' => '0',
+                ],
+            ],
+            'wishlist' => [
+                'general' => [
+                    'active' => '1',
+                    'show_in_sidebar' => '1',
+                ],
+                'email' => [
+                    'email_identity' => 'general',
+                    'email_template' => 'wishlist_email_email_template',
+                    'number_limit' => '10',
+                    'text_limit' => '255',
+                ],
+            ],
+            'crontab' => [
+                'default' => [
+                    'jobs' => [
+                        'sitemap_generate' => [
+                            'schedule' => [
+                                'cron_expr' => '0 0 * * *',
+                            ],
+                        ],
+                        'vertex_log_rotation' => [
+                            'schedule' => [
+                                'cron_expr' => '0 0 * * 1',
+                            ],
+                        ],
+                    ],
                 ],
             ],
             'carriers' => [
@@ -1671,25 +1863,6 @@ Disallow: /*SID=
                     'is_online' => '1',
                 ],
             ],
-            'import' => [
-                'format_v1' => [
-                    'page_size' => '5000',
-                ],
-                'format_v2' => [
-                    'page_size' => '10000',
-                    'bunch_size' => '100',
-                ],
-            ],
-            'three_d_secure' => [
-                'cardinal' => [
-                    'environment' => 'production',
-                    'api_key' => null,
-                    'org_unit_id' => null,
-                    'api_identifier' => null,
-                    'debug' => '0',
-                    'enabled_authorizenet' => '0',
-                ],
-            ],
             'google' => [
                 'adwords' => [
                     'active' => '0',
@@ -1754,91 +1927,12 @@ Disallow: /*SID=
                     'active' => '0',
                 ],
             ],
-            'analytics' => [
-                'integration_name' => 'Magento Analytics user',
-                'general' => [
-                    'collection_time' => '02,00,00',
-                ],
-                'subscription' => [
-                    'enabled' => '1',
-                ],
-            ],
-            'multishipping' => [
-                'options' => [
-                    'checkout_multiple' => '1',
-                    'checkout_multiple_maximum_qty' => '100',
-                ],
-            ],
             'newrelicreporting' => [
                 'general' => [
                     'enable' => '0',
                 ],
                 'cron' => [
                     'enable_cron' => '0',
-                ],
-            ],
-            'newsletter' => [
-                'general' => [
-                    'active' => '1',
-                ],
-                'subscription' => [
-                    'allow_guest_subscribe' => '1',
-                    'confirm' => '0',
-                    'confirm_email_identity' => 'support',
-                    'confirm_email_template' => 'newsletter_subscription_confirm_email_template',
-                    'success_email_identity' => 'general',
-                    'success_email_template' => 'newsletter_subscription_success_email_template',
-                    'un_email_identity' => 'support',
-                    'un_email_template' => 'newsletter_subscription_un_email_template',
-                ],
-                'sending' => [
-                    'set_return_path' => '0',
-                ],
-            ],
-            'promo' => [
-                'auto_generated_coupon_codes' => [
-                    'length' => '12',
-                    'format' => '1',
-                ],
-            ],
-            'paypal' => [
-                'style' => [
-                    'logo' => null,
-                    'checkout_page_button_customize' => '0',
-                    'checkout_page_button_label' => 'paypal',
-                    'checkout_page_button_layout' => 'vertical',
-                    'checkout_page_button_size' => 'responsive',
-                    'checkout_page_button_shape' => 'rect',
-                    'checkout_page_button_color' => 'gold',
-                    'product_page_button_customize' => '0',
-                    'product_page_button_label' => 'buynow',
-                    'product_page_button_layout' => 'horizontal',
-                    'product_page_button_size' => 'responsive',
-                    'product_page_button_shape' => 'pill',
-                    'product_page_button_color' => 'gold',
-                    'cart_page_button_customize' => '0',
-                    'cart_page_button_label' => 'paypal',
-                    'cart_page_button_layout' => 'vertical',
-                    'cart_page_button_size' => 'responsive',
-                    'cart_page_button_shape' => 'rect',
-                    'cart_page_button_color' => 'gold',
-                    'mini_cart_page_button_customize' => '0',
-                    'mini_cart_page_button_label' => 'paypal',
-                    'mini_cart_page_button_layout' => 'vertical',
-                    'mini_cart_page_button_size' => 'responsive',
-                    'mini_cart_page_button_shape' => 'rect',
-                    'mini_cart_page_button_color' => 'gold',
-                ],
-                'wpp' => [
-                    'button_flavor' => 'dynamic',
-                ],
-                'wpuk' => [
-                    'user' => null,
-                    'pwd' => null,
-                ],
-                'fetch_reports' => [
-                    'schedule' => '1',
-                    'time' => '00,00,00',
                 ],
             ],
             'persistent' => [
@@ -1849,51 +1943,6 @@ Disallow: /*SID=
                     'remember_default' => '1',
                     'logout_clear' => '1',
                     'shopping_cart' => '1',
-                ],
-            ],
-            'reports' => [
-                'dashboard' => [
-                    'ytd_start' => '1,1',
-                    'mtd_start' => '1',
-                ],
-                'options' => [
-                    'enabled' => '0',
-                    'product_view_enabled' => '1',
-                    'product_send_enabled' => '1',
-                    'product_compare_enabled' => '1',
-                    'product_to_cart_enabled' => '1',
-                    'product_to_wishlist_enabled' => '1',
-                    'wishlist_share_enabled' => '1',
-                ],
-            ],
-            'url_rewrite' => [
-                'entity_types' => [
-                    'product' => [
-                        'generator' => 'Magento\\Framework\\DataObject',
-                    ],
-                    'category' => [
-                        'generator' => 'Magento\\Framework\\DataObject',
-                    ],
-                    'cms-page' => [
-                        'generator' => 'Magento\\Framework\\DataObject',
-                    ],
-                ],
-            ],
-            'sendfriend' => [
-                'email' => [
-                    'enabled' => '0',
-                    'template' => 'sendfriend_email_template',
-                    'allow_guest' => '0',
-                    'max_recipients' => '5',
-                    'max_per_hour' => '5',
-                    'check_by' => '0',
-                ],
-            ],
-            'shipping' => [
-                'origin' => [
-                    'country_id' => 'US',
-                    'postcode' => '90034',
-                    'region_id' => '12',
                 ],
             ],
             'fraud_protection' => [
@@ -1936,91 +1985,9 @@ Disallow: /*SID=
                     ],
                 ],
             ],
-            'crontab' => [
-                'default' => [
-                    'jobs' => [
-                        'sitemap_generate' => [
-                            'schedule' => [
-                                'cron_expr' => '0 0 * * *',
-                            ],
-                        ],
-                        'vertex_log_rotation' => [
-                            'schedule' => [
-                                'cron_expr' => '0 0 * * 1',
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-            'tax' => [
-                'classes' => [
-                    'shipping_tax_class' => '0',
-                    'default_product_tax_class' => '2',
-                    'default_customer_tax_class' => '3',
-                ],
-                'calculation' => [
-                    'algorithm' => 'TOTAL_BASE_CALCULATION',
-                    'apply_after_discount' => '1',
-                    'discount_tax' => '0',
-                    'based_on' => 'shipping',
-                    'price_includes_tax' => '0',
-                    'shipping_includes_tax' => '0',
-                    'apply_tax_on' => '0',
-                ],
-                'defaults' => [
-                    'country' => 'US',
-                    'region' => '0',
-                ],
-                'display' => [
-                    'type' => '1',
-                    'shipping' => '1',
-                ],
-                'cart_display' => [
-                    'price' => '1',
-                    'subtotal' => '1',
-                    'shipping' => '1',
-                    'discount' => '1',
-                    'grandtotal' => '0',
-                    'full_summary' => '0',
-                    'zero_tax' => '0',
-                ],
-                'sales_display' => [
-                    'price' => '1',
-                    'subtotal' => '1',
-                    'shipping' => '1',
-                    'discount' => '1',
-                    'grandtotal' => '0',
-                    'full_summary' => '0',
-                    'zero_tax' => '0',
-                ],
-                'notification' => [
-                    'info_url' => 'https://docs.magento.com/m2/ce/user_guide/tax/warning-messages.html',
-                ],
-                'weee' => [
-                    'enable' => '0',
-                    'display' => '1',
-                    'display_list' => '1',
-                    'display_sales' => '1',
-                    'display_email' => '1',
-                    'apply_vat' => '0',
-                    'include_in_subtotal' => '0',
-                ],
-            ],
             'webapi' => [
                 'webapisecurity' => [
                     'allow_insecure' => '0',
-                ],
-            ],
-            'wishlist' => [
-                'general' => [
-                    'active' => '1',
-                    'show_in_sidebar' => '1',
-                ],
-                'email' => [
-                    'email_identity' => 'general',
-                    'email_template' => 'wishlist_email_email_template',
-                    'number_limit' => '10',
-                    'text_limit' => '255',
                 ],
             ],
             'connector_dynamic_content' => [
@@ -2100,15 +2067,6 @@ Disallow: /*SID=
         ],
     ],
     'themes' => [
-        'adminhtml/Magento/backend' => [
-            'parent_id' => null,
-            'theme_path' => 'Magento/backend',
-            'theme_title' => 'Magento 2 backend',
-            'is_featured' => '0',
-            'area' => 'adminhtml',
-            'type' => '0',
-            'code' => 'Magento/backend',
-        ],
         'frontend/Magento/blank' => [
             'parent_id' => null,
             'theme_path' => 'Magento/blank',
@@ -2126,6 +2084,15 @@ Disallow: /*SID=
             'area' => 'frontend',
             'type' => '0',
             'code' => 'Magento/luma',
+        ],
+        'adminhtml/Magento/backend' => [
+            'parent_id' => null,
+            'theme_path' => 'Magento/backend',
+            'theme_title' => 'Magento 2 backend',
+            'is_featured' => '0',
+            'area' => 'adminhtml',
+            'type' => '0',
+            'code' => 'Magento/backend',
         ],
     ],
     'i18n' => [
