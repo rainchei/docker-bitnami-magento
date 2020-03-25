@@ -46,6 +46,9 @@ RUN \
   && mkdir -p /var/run/php \
   && chmod +x /usr/bin/tini
 
+# Post install
+COPY ./etc/ /etc/
+
 WORKDIR /var/www/html
 
 # ---
