@@ -9,8 +9,7 @@ mage_conf() {
   cd ${MAGE_ROOT}
 
   echo "Setting up env.php for magento2."
-  dockerize -delims "<%:%>" -template ${MAGE_ROOT}/app/etc/env.php.tmpl:./app/etc/env.php \
-  && chown www-data:www-data ./app/etc/env.php
+  dockerize -template ${MAGE_ROOT}/app/etc/env.php.tmpl:./app/etc/env.php
 
   # setup upgrade
   gosu www-data:www-data ./bin/magento setup:upgrade --keep-generated --no-interaction
