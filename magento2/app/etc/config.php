@@ -154,7 +154,7 @@ return [
         'Magento_Translation' => 1,
         'Magento_GoogleOptimizer' => 0,
         'Magento_Ups' => 0,
-        'Magento_SampleData' => 0,
+        'Magento_SampleData' => 1,
         'Magento_CatalogUrlRewriteGraphQl' => 0,
         'Magento_CatalogAnalytics' => 0,
         'Magento_Usps' => 0,
@@ -170,7 +170,7 @@ return [
         'Magento_CatalogWidget' => 0,
         'Magento_Wishlist' => 1,
         'Magento_WishlistAnalytics' => 0,
-        'Magento_WishlistGraphQl' => 0
+        'Magento_WishlistGraphQl' => 0,
     ],
     'scopes' => [
         'websites' => [
@@ -2130,5 +2130,5 @@ Disallow: /*SID=
     ],
     'i18n' => [
 
-    ]
+    ],
 ];
