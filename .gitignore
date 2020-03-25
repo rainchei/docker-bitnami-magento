@@ -12,7 +12,6 @@ magento2/sitemap.xml
 magento2/.idea
 magento2/.gitattributes
 magento2/app/config_sandbox
-magento2/app/etc/config.php
 magento2/app/etc/env.php
 magento2/app/code/Magento/TestModule*
 magento2/node_modules
