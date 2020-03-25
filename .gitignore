@@ -47,6 +47,7 @@ magento2/generated/*
 magento2/lib/*
 magento2/bin/magento
 magento2/composer.json
+magento2/composer.lock
 
 *.sample
 *.DS_Store
